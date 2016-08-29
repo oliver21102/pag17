@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title></title>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+	 <style type="text/css">
+ .cajas{
+   position: absolute;
+   width: 10%;
+   height: 10%;
+   z-index: 3;
+ }
+
+   </style>
+</head>
+<body>
+   <div class="cajas" style="left:8%; top:8%;"> <input   id="caja1" type="text" value="R"></div>
+  
+
+
+ <script type="text/javascript">
+  var p1=$("#caja1");
+ console.log( p1.attr("value"));
+
+ var p2=p1.clone();
+ p2.attr("value","T");
+ console.log(p2.attr("value"));
+ </script>
+
+</body>
+</html> 

@@ -1,0 +1,592 @@
+
+<!doctype html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/plantilla.css">
+ <style type="text/css">
+
+  
+
+
+  #panel{
+ position: absolute;
+ left: 3%;
+ top: 18%;
+ width: 40%;
+ height: 80%;
+  border-radius: 10% 10% 10% 10%;
+ -moz-border-radius: 10% 10% 10% 10%;
+-webkit-border-radius: 10% 10% 10% 10%;
+
+border: 0px solid #000000;
+background: #FFEC9C;
+-webkit-box-shadow: 10px 10px 11px -5px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 11px -5px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 11px -5px rgba(0,0,0,0.75); 
+ 
+ }
+
+
+ .preguntas{
+ position: relative;
+ z-index: 4;
+ text-align: justify;
+ width: 90%;
+ top: 0%;
+ padding-top: 3%;
+ 
+ }
+
+
+#ordenes{
+position: absolute;
+left: 3%;
+top: 20%;
+width: 40%;
+height: 70%;
+z-index: 5;
+/*border: 2px solid #000;*/
+ }
+ input{
+   
+ 	width: 6%;
+ 	height: 6%;  
+ 	 background-color: #fff;
+   color: #000;
+    text-align: center;
+    text-transform: uppercase;
+   font-weight: bold;
+ }
+
+
+#contenido{
+position: absolute;
+left: 44%;
+top: 20%;
+width: 55%;
+height:75%; 
+z-index: 4;
+
+}
+ 
+ 
+ .cajas1{
+ z-index: 5;
+ position: absolute;
+
+   }
+
+.cajas2{
+  z-index: 5;
+ position: absolute;
+   }
+
+
+.cajas4{
+  z-index: 5;
+ position: absolute;
+   }
+
+
+.cajas5{
+  z-index: 5;
+ position: absolute;
+   }
+
+
+.cajas2{
+  z-index: 5;
+ position: absolute;
+   }
+
+ .cajas3{
+  z-index: 5;
+ position: absolute;
+   }
+
+#pre{
+position: absolute;
+left: 0%;
+top: 0%;
+width: 100%;
+height: 100%;
+z-index: 4;
+}
+
+.numeracion{
+  position: absolute;
+  z-index: 2;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+
+ </style>
+
+</head>
+<body onload="inicio()" onresize="ajustar()">
+
+	<img src="imagenes/fondo.png" id="fondo">
+    <div id="consigna">Lee detenidamente los diferentes enunciados sobre elementos de un vector y resuelve el crucigrama.</div>   
+  
+     <div id="panel"> </div>
+    <div id="ordenes">
+    <div class="preguntas">1.-Lugar desde donde comienza el vector.</div>
+    <div class="preguntas">2.-Elemento que indica hacia dónde se dirige el vector, llamándose también punto de llegada.</div>
+    <div class="preguntas">3.-Flecha o segmento de recta orientada con la que es posible representar la magnitud vectorial mediante una gráfica.</div>
+    <div class="preguntas">4.-Es la recta del vector y se la define mediante el ángulo medido en sentido anti horario desde la recta de referencia.</div>
+    <div class="preguntas">5- Es el valor de la magnitud vectorial, también llamado tamaño o norma.</div>
+    </div>
+
+
+
+    <div id="contenido">
+
+    <div  id="pre"> 
+      <input  class="cajas1"  id="a1" maxLength="1" onkeypress="solotexto(this)"  > 
+     <input  class="cajas1"  id="a2" maxLength="1" onkeypress="solotexto(this)" > 
+      <input  class="cajas1" id="a3" maxLength="1" onkeypress="solotexto(this)" >  
+      <input  class="cajas1" id="a4" maxLength="1" onkeypress="solotexto(this)" >  
+      <input  class="cajas1" id="a5" maxLength="1" onkeypress="solotexto(this)" >  
+      <input  style="background-color:#000; position: absolute; left:32%; top:16%;"  maxLength="1" >  
+      <input  class="cajas1" id="a6" maxLength="1" onkeypress="solotexto(this)" >  
+      <input  class="cajas1" id="a7" maxLength="1" onkeypress="solotexto(this)" >
+      <input  class="cajas1" id="a8" maxLength="1" onkeypress="solotexto(this)" >
+      <input  class="cajas1" id="a9" maxLength="1" onkeypress="solotexto(this)" >
+      <input  class="cajas1" id="a10" maxLength="1" onkeypress="solotexto(this)" >
+      <input  class="cajas1" id="a11" maxLength="1" onkeypress="solotexto(this)" >
+ 
+  
+  
+   	 
+        <input  class="cajas2" id="b1" maxLength="1" style="left:15%; top:4%;"  onkeypress="solotexto(this)" > 
+        <input  class="cajas2" id="b2" maxLength="1" style="left:15%; top:10%;" onkeypress="solotexto(this)" > 
+        <input               maxLength="1" style="position:absolute;left:15%; top:16%; z-index:6;"  value="N"> 
+        <input  class="cajas2" id="b3" maxLength="1" style="left:15%; top:22%;" onkeypress="solotexto(this)"> 
+        <input  class="cajas2" id="b4" maxLength="1" style="left:15%; top:28%;"onkeypress="solotexto(this)"> 
+        <input  class="cajas2" id="b5" maxLength="1" style="left:15%; top:34%;"onkeypress="solotexto(this)"> 
+        <input  class="cajas2" id="b6" maxLength="1" style="left:15%; top:40%;"onkeypress="solotexto(this)"> 
+       
+    
+
+       <input  class="cajas3"  id="c1" style="left:26%; top:40%;" maxLength="1" onkeypress="solotexto(this)" > 
+       <input  class="cajas3"  id="c2" maxLength="1" style="left:26%; top:34%;"  onkeypress="solotexto(this)" >     
+      <input  class="cajas3"  id="c3" maxLength="1" style="left:26%; top:28%;" onkeypress="solotexto(this)" >    
+      <input  class="cajas3"  id="c4" maxLength="1" style="left:26%; top:22%;"  onkeypress="solotexto(this)" >  
+      <input  class="cajas3"  id="c5" maxLength="1" style="left:26%; top:10%;"  onkeypress="solotexto(this)" >  
+      <input style="position:absolute; left:26%; top:16%; z-index:6;"              maxLength="1"   value="O">     
+        
+  
+      
+       
+         
+  
+
+ 
+     <input  class="cajas4"  id="d1" maxLength="1"  style="left:56%; top:10%;"onkeypress="solotexto(this)" >    
+     <input    style="position:absolute; z-index:6; left:56%; top:16%;"  maxLength="1"  value="I" >    
+     <input  class="cajas4"  id="d2" maxLength="1"  style="left:56%; top:22%;"onkeypress="solotexto(this)" >    
+     <input  class="cajas4"  id="d3" maxLength="1"  style="left:56%; top:28%;"onkeypress="solotexto(this)" >    
+     <input  class="cajas4"  id="d4" maxLength="1"  style="left:56%; top:34%;" onkeypress="solotexto(this)" >    
+     <input  class="cajas4"  id="d5" maxLength="1" style="left:56%; top:40%;" onkeypress="solotexto(this)" >    
+     <input  class="cajas4"  id="d6" maxLength="1" style="left:56%; top:46%;"onkeypress="solotexto(this)" >    
+     <input  class="cajas4"  id="d7" maxLength="1" style="left:56%; top:52%;" onkeypress="solotexto(this)" >    
+     <input  class="cajas4"  id="d8" maxLength="1" style="left:56%; top:58%;" onkeypress="solotexto(this)" >    
+ 
+
+ 
+     <input  class="cajas5"  id="e1" maxLength="1" style="left:86%; top:10%;"onkeypress="solotexto(this)" >    
+     <input   style=" position:absolute; z-index:6; left:86%; top:16%;" maxLength="1"  value="Ó">    
+     <input  class="cajas5"  id="e2" style="left:86%; top:22%;" maxLength="1" onkeypress="solotexto(this)" >    
+     <input  class="cajas5"  id="e3" style="left:86%; top:28%;" maxLength="1" onkeypress="solotexto(this)" >    
+     <input  class="cajas5"  id="e4" style="left:86%; top:34%;" maxLength="1" onkeypress="solotexto(this)" >    
+     <input  class="cajas5"  id="e5" style="left:86%; top:40%;"maxLength="1" onkeypress="solotexto(this)" >  
+
+     </div>  
+
+ 
+  <div id="txt1" class="numeracion">1</div>
+  <!--<div id="txt2">2</div>
+  <div id="txt3">3</div>
+  <div id="txt4">4</div>
+  <div id="txt5">5</div>
+  -->
+ 
+ 
+  
+
+
+    </div>
+
+
+      
+ 
+ <script type="text/javascript">
+
+   var respuestas=new Array();
+   var totalCajas= new Array();
+    totalCajas.push("cajas1");
+    totalCajas.push("cajas2");
+    totalCajas.push("cajas3");
+    totalCajas.push("cajas4");
+    totalCajas.push("cajas5");
+ 
+  var aciertos=0;
+  var entradas=false;
+  var totalPalabras=5;
+  var elementoAnterior=null;
+  var colorBien="#6BE927";
+  var colorMal="#FF6600";
+
+   function inicio(){
+   	ajustar();
+    //sonidoFondo();
+   }
+
+
+
+function asignarEventos(ar){
+   for(var i=0; i<ar.length; i++ ){
+      $("#"+ar[i].id).on("click",cambiarfoco);
+      $("#"+ar[i].id).on("touchstart",cambiarfoco);
+   }
+}
+function  cambiarfoco(e){
+ // alert("*"+e.target.id+"*");
+ //document.getElementById(e.target.id).value="";  
+$("#"+e.target.id).val("");
+ $("#"+e.target.id).focus();
+}
+
+   function ajustar(){
+
+        var alto=$(window).height();
+  var ancho=$(window).width();
+     ancho=(ancho+alto)/2;
+   var tamanio= ancho/45;
+   
+   
+var vpreg= document.getElementsByClassName("preguntas");
+$("#consigna").css("fontSize",""+tamanio*0.85+"pt");
+  
+  
+//ponerVertical($(".cajas2"),15,4);
+//ponerVertical($(".cajas3"),26,10);
+//ponerVertical($(".cajas4"),56,10);
+//ponerVertical($(".cajas5"),86,10);  
+//invertirPosiciones("cajas3");
+//ponerHorizontal($(".cajas1"),3,16);
+
+ 
+  var vcajas1=document.getElementsByClassName("cajas1");
+   vcajas1[0].focus();  
+  
+  colocarCajas1();
+  colocarnumeracion();
+  establecerRespuestas(respuestas);
+  
+   for( var t=0; t<vpreg.length; t++){
+ vpreg[t].style.fontSize=""+tamanio*0.9+"pt";
+ vpreg[t].style.left="5%";
+   }
+  var  vc1= document.getElementsByClassName("cajas1");
+  var  vc2= document.getElementsByClassName("cajas2");
+  var  vc3= document.getElementsByClassName("cajas3");
+  var  vc4= document.getElementsByClassName("cajas4");
+  var  vc5= document.getElementsByClassName("cajas5");
+
+ asignarEventos(vc1);
+ asignarEventos(vc2);
+ asignarEventos(vc3);
+ asignarEventos(vc4);
+ asignarEventos(vc5);
+
+
+   }
+
+   function colocarCajas1(){
+     colocarelemento("a1",3,16);
+     colocarelemento("a2",9,16);
+     //blanco             15
+     colocarelemento("a3",20,16);
+   // blanco              26
+   //nrego                 32
+     colocarelemento("a4",38,16);
+     colocarelemento("a5",44,16);
+     colocarelemento("a6",50,16);
+       // blanco          56
+      colocarelemento("a7",62,16);
+     colocarelemento("a8",68,16);
+     colocarelemento("a9",74,16);
+     colocarelemento("a10",80,16);
+     colocarelemento("a11",92,16);
+
+
+   }
+   function colocarelemento(id,posL,posT){
+     $("#"+id+"").css("left",""+posL+"%");
+     $("#"+id+"").css("top",""+posT+"%");
+
+   }
+
+
+function siguienteElemento(ele){
+ var vclase= document.getElementsByClassName($(ele).attr("class"));
+
+ var pos=-1;
+ for(var i=0; i<vclase.length && (pos==-1); i++){
+   
+          if(ele==vclase[i]){
+             pos=i;
+          }
+  }
+  if(pos==(vclase.length-1)){
+    return null;
+  }
+ //console.log("MM *"+$("#"+vclase[pos+1].id)+"*");
+  return $("#"+vclase[pos+1].id);
+ //return vclase[pos+1].id;
+}
+
+
+
+
+function establecerRespuestas(ar){
+ ar.push("PUTAPLCACIN");
+ ar.push("SETIDO");
+ ar.push("VECTR");
+ ar.push("DRECCION");
+ ar.push("MDULO");
+
+}
+
+
+function colocarnumeracion(){
+ $("#txt1").css("position","absolute");
+ $("#txt1").css("left","1.5%");
+ $("#txt1").css("top","17%");
+
+}
+
+function ponerHorizontal(ar,posL,posT){
+  var k=posL;
+    for( var i=0; i<ar.length; i++){
+          ar[i].style.left=""+k+"%";
+          ar[i].style.top=""+posT+"%";
+          k+=6;
+    }
+}
+
+   function ponerVertical(ar,posL,posT){
+   var k=posT;
+    for( var i=0; i<ar.length; i++){
+          ar[i].style.left=""+posL+"%";
+          ar[i].style.top=""+k+"%";
+          k+=6;
+    }
+
+   }
+function invertirPosiciones(ar){
+   var vclaseAux=document.getElementsByClassName(ar);
+     var aux=0;
+   for(var i=0; i<(vclaseAux.length/2); i++){
+            var ultimL=vclaseAux[vclaseAux.length-1-i].style.left;
+            var ultimT=vclaseAux[vclaseAux.length-1-i].style.top;
+            vclaseAux[(vclaseAux.length-1-i)].style.left=vclaseAux[i].style.left;
+            vclaseAux[(vclaseAux.length-1-i)].style.top=vclaseAux[i].style.top;
+            vclaseAux[i].style.left=ultimL;
+            vclaseAux[i].style.top=ultimT;
+  
+   }
+
+
+}
+
+ 
+function solotexto(ob) {
+  var ingreso=false;
+   
+ $(ob).attr("value",String.fromCharCode(event.keyCode).toUpperCase());
+ if ((event.keyCode != 32) && (event.keyCode < 65) || (event.keyCode > 90) && (event.keyCode < 97) || (event.keyCode > 122)){ // 
+  //ingreso numeros y otros caracteres
+  ingreso=true;
+
+ }
+
+  if(ingreso){
+    console.log("ingreso");
+      event.returnValue = false;
+  }
+ if(elementoAnterior!=null){
+   console.log("eleA "+elementoAnterior.attr("value"));
+ }
+   if(esUltimaCajaDeLaPalabra(ob)){
+     console.log("OZG");
+        if(verificarPalabraCorrecta(ob)){
+            aciertos++;
+            pintarPalabra(ob,colorBien);
+            sonidoBien();
+        }else{
+           pintarPalabra(ob,colorMal);
+           sonidoMal();
+        }
+
+        if(aciertos==totalPalabras){
+          setTimeout(function(){
+             alert("termino");
+          },1000);
+         
+        }
+   }
+
+
+var ele=siguienteElemento(ob);
+
+     if(ele!=null){
+ 
+        if(entradas){
+ //elementoAnterior=ele.clone();
+        }
+
+ entradas=true;
+      ele.focus();
+     //ele.attr("value","");
+     ele.val("");
+     }else{
+      entradas=true;
+    var cla=getSiguienteArreglo(ob);
+       cla[0].focus();
+     ///  $("#"+cla[0].id).attr("value","");
+     $("#"+cla[0].id).val("");
+     }   
+return false;
+} 
+
+function esUltimaCajaDeLaPalabra(ob){
+  //  mostrarPalabra(ob);
+  var vclaseAux=  document.getElementsByClassName($(ob).attr("class"));
+
+  for(var i=0;  i<vclaseAux.length; i++){
+         console.log($("#"+vclaseAux[i].id+""));
+      if($("#"+vclaseAux[i].id+"").attr("value")==""){  
+        return false;
+      }
+
+  }
+ console.log("esUltimaCajaDeLaPalabra = true");
+  return true;
+}
+
+
+/*
+function mostrarPalabra(ob){
+var cadena=""; 
+  var vclaseAux=  document.getElementsByClassName($(ob).attr("class"));
+  for(var i=0;  i<vclaseAux.length; i++){
+
+      if($("#"+vclaseAux[i].id+"").attr('value')==''){ 
+      cadena=cadena+"*";
+      }
+  }
+ 
+return cadena;
+}
+*/
+
+
+
+function verificarPalabraCorrecta(ob){
+  var vclaseAux=document.getElementsByClassName($(ob).attr("class"));
+     var palabraCompleta=getRespuesta(ob);
+     var caddd="";
+     for(var ti=0; ti<vclaseAux.length; ti++){
+       caddd+=""+document.getElementById(vclaseAux[ti].id).value;
+     }
+
+   console.log("la palabra escrita es *"+caddd+"*");
+    for(var i=0; i<vclaseAux.length; i++){
+              if(document.getElementById(vclaseAux[i].id).value.toUpperCase()!=palabraCompleta[i]){
+              return false;
+               }
+        
+    }
+
+ return true;
+}
+function pintarPalabra(ob,color){
+var vclaseAux=document.getElementsByClassName($(ob).attr("class"));
+for(var i=0; i<vclaseAux.length; i++){
+      vclaseAux[i].style.color=color;
+
+}
+
+}
+
+
+function getRespuesta(ob){
+
+    var resAux= $(ob).attr("class");
+ //console.log("asswwww "+resAux);
+     for(var i=0; i<totalCajas.length; i++){
+        if(totalCajas[i]==resAux){
+            return respuestas[i];
+        }
+     }
+  console.log("return null getRespuesta");
+     return null;
+}
+
+
+function getSiguienteArreglo(ob){ // return el siguiente arregleo en base el elemento dado  
+     var claseAux= $(ob).attr("class");
+     var pos=-1;
+     for(var i=0; i<totalCajas.length && (pos==-1) ; i++){
+         if(totalCajas[i]==claseAux){
+                pos=i;
+         }
+     }
+     
+       if(pos==-1){
+        console.log("no se encontro");
+       }
+
+    if(pos==(totalCajas.length-1))   {
+       pos=0;
+    }else{
+      pos++;
+    } 
+    arreglo=totalCajas[pos];
+    //console.log("arrre "+arreglo);
+    return document.getElementsByClassName(""+arreglo);
+
+  }
+
+function sonidoBien(){
+  var audio=document.createElement("audio");
+  audio.src="sonido/bien.wav";
+    audio.play();
+}
+function sonidoMal(){
+  var audio=document.createElement("audio");
+  audio.src="sonido/mal.wav";
+    audio.play();
+}
+ 
+function sonidoFondo(){
+  var audio=document.createElement("audio");
+  audio.src="sonido/sonidoF.mp3";
+    audio.play();
+}
+
+ </script>
+
+
+</body>
+</html>
